@@ -55,7 +55,7 @@ else:
     model1 = KeyedVectors.load(path_to_trained_model)
     print("Model loaded, doing stuff... ;-)")
     # do stuff here with model
-    print(model1.wv.most_similar(positive="rain"))
+    print(model1.most_similar("period".lower()))
     # print(model1.similarity("rain", "cultivation"))
 
 # Function to display similar words
