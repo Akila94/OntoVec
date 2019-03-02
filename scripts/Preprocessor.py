@@ -13,7 +13,7 @@ def load_corpus(path):
 
 # Removes all special characters and numbers of the corpus.
 def remove_special_characters(text):
-    cleaned_text = re.sub("([-–,_\(\){}“”’:@\"$%?&\\\/*'\"]|\s+\([0-9]+\.[0-9]+\)|\s+([0-9]+\.[0-9]+)|\d)", "", text)
+    cleaned_text = re.sub("([-–,_\(\){}“”’!:@\"$%?&\\\/*'\"]|\s+\([0-9]+\.[0-9]+\)|\s+([0-9]+\.[0-9]+)|\d)", "", text)
     # neat_text = re.sub("([\s])", " ", cleaned_text)
     return cleaned_text
 
@@ -50,7 +50,7 @@ def get_stop_words():
 # Splittes the sentences of the corpus.
 def write_sentences(preprocessed_text, path):
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
-    processed_sentences = list('\n'.join(tokenizer.tokenize(preprocessed_text)))
+    processed_sentences = list(''.join(tokenizer.tokenize(preprocessed_text)))
     # print(sentences)
     # Writing sentences to file
     with io.open(path, 'w', encoding="utf8") as f:
@@ -75,6 +75,7 @@ def get_list_to_train(text):
     sentences_list = joined_words.split(".")
     for w in sentences_list:
         list_to_train.append(w.split(" "))
+    print(list_to_train)
     return list_to_train
 
 # get_list_to_train(load_corpus("AgriCorpusSentences"))
