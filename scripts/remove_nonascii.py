@@ -14,4 +14,10 @@ def load_corpus(path):
 def remove_non_ascii_text(text):
     return ''.join(i for i in text if ord(i) < 128)
 
-print(remove_non_ascii_text(load_corpus(path)))
+
+def remove_trailing_new_line(text):
+    new_list = str(text).replace("\n", " ")
+    print(new_list)
+
+
+print(remove_trailing_new_line(remove_non_ascii_text(load_corpus(path))))
