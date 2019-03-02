@@ -75,6 +75,7 @@ def get_list_to_train(text):
     sentences_list = joined_words.split(".")
     for w in sentences_list:
         list_to_train.append(w.split(" "))
+    print(list_to_train)
     return list_to_train
 
 # get_list_to_train(load_corpus("AgriCorpusSentences"))

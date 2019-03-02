@@ -17,7 +17,8 @@ def remove_non_ascii_text(text):
 
 def remove_trailing_new_line(text):
     new_list = str(text).replace("\n", " ")
-    print(new_list)
+    with io.open("../results/corpora/new.txt", "w", encoding="utf8") as f:
+        for s in new_list:
+            f.write(s)
 
-
-print(remove_trailing_new_line(remove_non_ascii_text(load_corpus(path))))
+remove_trailing_new_line(remove_non_ascii_text(load_corpus(path)))
