@@ -79,4 +79,4 @@ def get_list_to_train(text):
     return list_to_train
 
 # get_list_to_train(load_corpus("AgriCorpusSentences"))
-# write_sentences(remove_special_characters(load_corpus("AgriCorpus")))
+write_sentences(remove_special_characters(load_corpus("AgriCorpus")))

@@ -2,7 +2,7 @@ import io
 import os
 
 
-path = "../data/non-ascii-corpus.txt"
+path = "../data/2003_ASDA-min.txt"
 
 # Loads the corpus into project.
 def load_corpus(path):
