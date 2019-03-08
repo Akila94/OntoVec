@@ -70,7 +70,7 @@ def make_list(joined_words):
     sentences_list = str(joined_words).split(".")
     for w in sentences_list:
         list_to_train.append(w.split(" "))
-    print(list_to_train)
+    return list_to_train
 
 
 def preprocess(path):
@@ -79,7 +79,10 @@ def preprocess(path):
     symbol_free_text = remove_special_characters(ascii_text)
     one_lined_text = remove_trailing_new_line(symbol_free_text)
     words = remove_stop_words(one_lined_text)
-    make_list(words)
 
+    with io.open("../results/corpora/processedT.txt", 'w', encoding="utf8") as f:
+        for s in words:
+            f.write(s)
 
-preprocess("../data/2003_ASDA-min.txt")
+    final_list = make_list(words)
+    return final_list
